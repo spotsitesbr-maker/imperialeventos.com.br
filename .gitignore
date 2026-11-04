@@ -1,0 +1,7 @@
+# Node / Temp
+node_modules/
+.wrangler/
+.env*
+.DS_Store
+Thumbs.db
+server.js

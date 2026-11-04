@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imperial — Espaço & Eventos | Conceito Arquitetural</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0e0e11;
+      --surface: #141419;
+      --surface-elevated: #1a1a22;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(255, 255, 255, 0.25);
+      --text-primary: #f2f2f5;
+      --text-secondary: #8a8a98;
+      --accent: #e5b967;
+      --accent-muted: rgba(229, 185, 103, 0.15);
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Floating Capsule Nav (App Style) */
+    .nav-dock {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: rgba(20, 20, 25, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 10px 6px 20px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-brand {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      background: #fff;
+      color: #0e0e11;
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover {
+      background: var(--accent);
+      transform: scale(1.02);
+    }
+
+    /* Hero Section — Immersive & Architectural */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 120px 60px 80px;
+      overflow: hidden;
+    }
+    .hero-media-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .hero-media-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      filter: brightness(0.65) contrast(1.1);
+      transition: transform 10s ease;
+    }
+    .hero:hover .hero-media-bg img {
+      transform: scale(1.08);
+    }
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(14,14,17,0.4) 0%, rgba(14,14,17,0.2) 40%, rgba(14,14,17,0.95) 100%);
+      z-index: 2;
+    }
+    .hero-container {
+      position: relative;
+      z-index: 3;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 60px;
+      align-items: flex-end;
+    }
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-aside {
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+      padding-left: 32px;
+      padding-bottom: 10px;
+    }
+    .hero-desc {
+      color: #b5b5c2;
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .hero-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .spec-item span {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+    .spec-item strong {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Section Global */
+    section {
+      padding: 140px 60px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .section-meta::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .section-heading-huge {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #fff;
+      max-width: 900px;
+      margin-bottom: 60px;
+    }
+
+    /* Architectural Manifesto / Split */
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .manifesto-text p {
+      color: var(--text-secondary);
+      font-size: 1.15rem;
+      line-height: 1.8;
+      margin-bottom: 28px;
+      font-weight: 300;
+    }
+    .manifesto-text p strong {
+      color: #fff;
+      font-weight: 500;
+    }
+    .manifesto-details {
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .manifesto-img-frame {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+    .manifesto-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .manifesto-img-frame:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Spatial Environments — Interactive Gallery */
+    .spaces-container {
+      margin-top: 40px;
+    }
+    .spaces-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+    .space-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      padding: 10px 20px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .space-tab-btn.active {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+    .space-display {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .space-img-large {
+      position: relative;
+      height: 520px;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .space-img-large img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.4s ease;
+    }
+    .space-info {
+      padding: 20px 0;
+    }
+    .space-info h3 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .space-info p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+    .space-attributes {
+      list-style: none;
+      margin-bottom: 36px;
+    }
+    .space-attributes li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      color: #d8d8e2;
+      font-size: 0.9rem;
+    }
+    .space-attributes li i {
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    /* Technical Specs / Bento Architectural */
+    .specs-bento {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .bento-cell {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 30px;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .bento-cell:hover {
+      border-color: var(--border-focus);
+    }
+    .bento-num {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: block;
+      letter-spacing: 0.1em;
+    }
+    .bento-cell h4 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .bento-cell p {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* Minimal Concierge Action */
+    .concierge-wrap {
+      border-top: 1px solid var(--border);
+      padding: 140px 60px;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .concierge-wrap h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      line-height: 1.1;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .concierge-wrap p {
+      color: var(--text-secondary);
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .btn-concierge {
+      background: #fff;
+      color: #0e0e11;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 18px 42px;
+      border-radius: 100px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-concierge:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(229, 185, 103, 0.3);
+    }
+
+    /* Footer Clean */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    footer a { color: var(--text-secondary); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 992px) {
+      .hero { padding: 120px 24px 60px; }
+      .hero-container { grid-template-columns: 1fr; gap: 40px; }
+      .manifesto-grid { grid-template-columns: 1fr; gap: 40px; }
+      .space-display { grid-template-columns: 1fr; }
+      .specs-bento { grid-template-columns: 1fr; }
+      .nav-dock { width: calc(100% - 32px); justify-content: space-between; }
+      .nav-links { display: none; }
+      section { padding: 80px 24px; }
+      .concierge-wrap { padding: 80px 24px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating App Capsule Nav -->
+  <nav class="nav-dock">
+    <a href="#" class="nav-brand">
+      <span></span> Imperial
+    </a>
+    <ul class="nav-links">
+      <li><a href="#arquitetura">O Espaço</a></li>
+      <li><a href="#ambientes">Ambientes</a></li>
+      <li><a href="#especificacoes">Ficha Técnica</a></li>
+    </ul>
+    <a href="https://wa.me/message/T6OX7PBBCT7HJ1" target="_blank" class="nav-cta">
+      Concierge <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem;"></i>
+    </a>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-media-bg">
+      <img src="https://imperialeventos.com.br/wp-content/uploads/2020/08/01.jpg" alt="Imperial Eventos Salão Nobre">
+    </div>
+    <div class="hero-gradient"></div>
+
+    <div class="hero-container">
+      <div>
+        <div class="hero-label">Vieiralves • Manaus</div>
+        <h1 class="hero-title">Arquitetura de celebração. <em>Luz & escala.</em></h1>
+      </div>
+      <div class="hero-aside">
+        <p class="hero-desc">
+          Um pavilhão contemporâneo concebido para momentos únicos. Salão central climatizado, lustres de cristal e gastronomia autoral no coração nobre de Manaus.
+        </p>
+        <div class="hero-specs">
+          <div class="spec-item">
+            <span>Capacidade</span>
+            <strong>80 — 250 convidados</strong>
+          </div>
+          <div class="spec-item">
+            <span>Climatização</span>
+            <strong>100% Sistema Central</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Manifesto / Espaço -->
+  <section id="arquitetura">
+    <div class="section-meta">Manifesto Espacial</div>
+    <h2 class="section-heading-huge">A proporção ideal entre o acolhimento íntimo e a grandiosidade de gala.</h2>
+
+    <div class="manifesto-grid">
+      <div class="manifesto-text">
+        <p>
+          Desde 2009, o <strong>Imperial Eventos</strong> foi pensado para desconstruir o formato rígido das casas de festas tradicionais, priorizando fluidez, conforto acústico e sofisticação luminotécnica.
+        </p>
+        <p>
+          Aqui, cada evento ganha uma cenografia sob medida. Os lustres clássicos de cristal dialogam com a geometria contemporânea das mesas, oferecendo uma experiência imersiva para noivos, debutantes e convidados.
+        </p>
+        <div class="manifesto-details">
+          <div>
+            <div style="font-family: var(--font-display); font-size: 1.8rem; color: #fff; font-weight: 600;">Vieiralves</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px;">Localização Nobre</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-size: 1.8rem; color: #fff; font-weight: 600;">+15 Anos</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px;">Tradição & Autoria</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-size: 1.8rem; color: #fff; font-weight: 600;">Total</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px;">Acervo Incluso</div>
+          </div>
+        </div>
+      </div>
+      <div class="manifesto-img-frame">
+        <img src="https://imperialeventos.com.br/wp-content/uploads/2020/08/luana-festa-26.jpg" alt="Decoração e Lustres">
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Spaces -->
+  <section id="ambientes">
+    <div class="section-meta">Setorização dos Ambientes</div>
+    <h2 class="section-heading-huge">Projetado para transições perfeitas do brinde à pista.</h2>
+
+    <div class="spaces-container">
+      <div class="spaces-tabs">
+        <button class="space-tab-btn active" onclick="trocarEspaco(0, this)">01. Salão Principal & Lustres</button>
+        <button class="space-tab-btn" onclick="trocarEspaco(1, this)">02. Cenografia & Pista</button>
+        <button class="space-tab-btn" onclick="trocarEspaco(2, this)">03. Gastronomia & Louçaria</button>
+      </div>
+
+      <div class="space-display" id="spaceDisplay">
+        <div class="space-img-large">
+          <img id="spaceImage" src="https://imperialeventos.com.br/wp-content/uploads/2020/08/01.jpg" alt="Salão Nobre">
+        </div>
+        <div class="space-info">
+          <h3 id="spaceTitle">O Grande Pavilhão Climatizado</h3>
+          <p id="spaceDesc">Ambiente contínuo com pé-direito imponente e lustres de cristal. O isolamento térmico e acústico preserva o bem-estar absoluto em qualquer época do ano.</p>
+          <ul class="space-attributes" id="spaceAttributes">
+            <li><i class="fa-solid fa-angle-right"></i> Climatização de alta eficiência dimensionada para até 250 convidados</li>
+            <li><i class="fa-solid fa-angle-right"></i> Layout modular de mesas com ampla área de circulação</li>
+            <li><i class="fa-solid fa-angle-right"></i> Cenário fotográfico natural com lustres suspensos de cristal</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Specs Bento -->
+  <section id="especificacoes">
+    <div class="section-meta">Ficha Técnica</div>
+    <h2 class="section-heading-huge">Toda a infraestrutura essencial já incorporada.</h2>
+
+    <div class="specs-bento">
+      <div class="bento-cell">
+        <span class="bento-num">[ 01 ]</span>
+        <h4>Conforto Térmico Central</h4>
+        <p>Sistema central de climatização com fluxo de ar contínuo e silencioso, garantindo temperatura amena e estabilizada durante todo o evento.</p>
+      </div>
+
+      <div class="bento-cell">
+        <span class="bento-num">[ 02 ]</span>
+        <h4>Acervo Completo de Mobiliário</h4>
+        <p>Mesas nobres, cadeiras de alta categoria, toalhas especiais e louçaria fina inclusas, sem custos adicionais de frete ou locação externa.</p>
+      </div>
+
+      <div class="bento-cell">
+        <span class="bento-num">[ 03 ]</span>
+        <h4>Gastronomia & Equipe Própria</h4>
+        <p>Cozinha estruturada com brigada de garçons e chefs experientes. Menus elaborados sob medida para o perfil do seu público.</p>
+      </div>
+
+      <div class="bento-cell">
+        <span class="bento-num">[ 04 ]</span>
+        <h4>Centralidade Urbana</h4>
+        <p>Instalado no Vieiralves (Nossa Senhora das Graças), facilitando o deslocamento seguro e o acesso aos melhores serviços da cidade.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Minimal Concierge Action -->
+  <div class="concierge-wrap">
+    <div class="section-meta" style="justify-content: center;">Atendimento Sob Medida</div>
+    <h2>Pronto para conhecer o espaço pessoalmente?</h2>
+    <p>Agende um horário exclusivo com nosso concierge e venha apreciar a iluminação e a atmosfera do Imperial Eventos.</p>
+    <a href="https://wa.me/message/T6OX7PBBCT7HJ1?text=Olá,%20gostaria%20de%20agendar%20uma%20visita%20ao%20Imperial%20Eventos" target="_blank" class="btn-concierge">
+      Falar com Concierge <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- Footer Clean -->
+  <footer>
+    <div>
+      <strong>Imperial Eventos</strong> — Vieiralves, Manaus • CNPJ: 26.508.542/0001-63
+    </div>
+    <div>
+      <a href="https://instagram.com/imperialeventos.am" target="_blank">Instagram @imperialeventos.am</a>
+    </div>
+  </footer>
+
+  <script>
+    const spaces = [
+      {
+        title: "O Grande Pavilhão Climatizado",
+        desc: "Ambiente contínuo com pé-direito imponente e lustres de cristal. O isolamento térmico e acústico preserva o bem-estar absoluto em qualquer época do ano.",
+        img: "https://imperialeventos.com.br/wp-content/uploads/2020/08/01.jpg",
+        attrs: [
+          "Climatização de alta eficiência dimensionada para até 250 convidados",
+          "Layout modular de mesas com ampla área de circulação",
+          "Cenário fotográfico natural com lustres suspensos de cristal"
+        ]
+      },
+      {
+        title: "Cenografia, Bolo & Pista de Dança",
+        desc: "Iluminação cênica computadorizada com destaque arquitetônico para a mesa principal e dinamismo envolvente para a recepção.",
+        img: "https://imperialeventos.com.br/wp-content/uploads/2020/08/luana-festa-26.jpg",
+        attrs: [
+          "Destaque arquitetural para corte do bolo e brinde",
+          "Acústica equilibrada para banda ao vivo ou DJ",
+          "Paleta luminosa adaptada ao projeto de decoração"
+        ]
+      },
+      {
+        title: "Gastronomia & Louçaria Fina",
+        desc: "Equipamentos completos de copa e bar. Pratos em porcelana, taças de cristal, talheres nobres e serviço de alta gastronomia.",
+        img: "https://imperialeventos.com.br/wp-content/uploads/2020/09/vemproimperial-1-15.jpeg",
+        attrs: [
+          "Cardápios empratados ou buffet contemporâneo",
+          "Louçaria completa e toalhas finas incluídas no acervo",
+          "Equipe de serviço treinada e com 15 anos de excelência"
+        ]
+      }
+    ];
+
+    function trocarEspaco(idx, btn) {
+      document.querySelectorAll('.space-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const s = spaces[idx];
+      const imgEl = document.getElementById('spaceImage');
+      imgEl.style.opacity = '0';
+      setTimeout(() => {
+        imgEl.src = s.img;
+        document.getElementById('spaceTitle').innerText = s.title;
+        document.getElementById('spaceDesc').innerText = s.desc;
+        document.getElementById('spaceAttributes').innerHTML = s.attrs.map(a => `<li><i class="fa-solid fa-angle-right"></i> ${a}</li>`).join('');
+        imgEl.style.opacity = '1';
+      }, 200);
+    }
+  </script>
+</body>
+</html>

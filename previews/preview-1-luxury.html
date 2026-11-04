@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imperial Eventos | Salão Nobre & Buffet em Manaus - Opção 1: Luxury Black & Gold</title>
+  <meta name="description" content="Salão de festas de alto padrão no Vieiralves, Manaus. Lustres de cristal, espaço climatizado para 80 a 250 convidados, buffet completo e decoração exclusiva.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg-dark: #0a0a0d;
+      --bg-card: #131318;
+      --bg-elevated: #1a1a23;
+      --gold-primary: #d4af37;
+      --gold-light: #f5e2a3;
+      --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f7e7b4 50%, #aa820a 100%);
+      --text-main: #f5f5f7;
+      --text-muted: #9e9ea7;
+      --accent-glow: rgba(212, 175, 55, 0.2);
+      --border-gold: rgba(212, 175, 55, 0.25);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Top Banner */
+    .top-announcement {
+      background: linear-gradient(90deg, #181409, #332608, #181409);
+      border-bottom: 1px solid rgba(212,175,55,0.25);
+      color: var(--gold-light);
+      text-align: center;
+      padding: 9px 16px;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+    .top-announcement strong { color: #fff; font-weight: 600; }
+
+    /* Header & Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 10, 13, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.3s;
+    }
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .brand-logo-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, #252012 0%, #0d0c08 100%);
+      color: var(--gold-light);
+      font-size: 1.3rem;
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+    .brand-text h1 {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+    }
+    .brand-text span {
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #c8c8d0;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .btn-gold {
+      background: var(--gold-gradient);
+      color: #121008;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 12px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 26px rgba(212, 175, 55, 0.45);
+    }
+    .btn-outline {
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      background: transparent;
+      padding: 11px 22px;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover {
+      background: rgba(212, 175, 55, 0.1);
+      border-color: var(--gold-primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px;
+      background: radial-gradient(circle at center 30%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
+                  linear-gradient(180deg, rgba(10,10,13,0.3) 0%, rgba(10,10,13,0.95) 100%),
+                  url('https://imperialeventos.com.br/wp-content/uploads/2020/08/01.jpg') center/cover no-repeat;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 8, 11, 0.72);
+      backdrop-filter: blur(2px);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      border-radius: 50px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .hero h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+      font-weight: 400;
+      line-height: 1.12;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+    .hero h2 em {
+      font-style: italic;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: #d1d1dc;
+      max-width: 680px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 720px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 32px;
+    }
+    .stat-item h3 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+    .stat-item p {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Section Global */
+    section {
+      padding: 100px 24px;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 60px;
+    }
+    .section-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--gold-primary);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Highlights Bento Grid */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+    .highlight-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s;
+    }
+    .highlight-card:hover {
+      border-color: var(--border-gold);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.4);
+    }
+    .highlight-card.col-7 { grid-column: span 7; }
+    .highlight-card.col-5 { grid-column: span 5; }
+    .highlight-card.col-4 { grid-column: span 4; }
+    .highlight-card.col-8 { grid-column: span 8; }
+
+    .card-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      font-size: 1.4rem;
+      margin-bottom: 22px;
+    }
+    .highlight-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .highlight-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+    .card-bg-img {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 45%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+      mask-image: linear-gradient(to right, transparent, black);
+      -webkit-mask-image: linear-gradient(to right, transparent, black);
+    }
+
+    /* Event Types Tabs */
+    .events-showcase {
+      background: var(--bg-card);
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 48px;
+      margin-top: 40px;
+    }
+    .events-tabs {
+      display: flex;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 20px;
+      margin-bottom: 36px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+    .tab-btn.active {
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold-light);
+      border: 1px solid var(--border-gold);
+    }
+    .tab-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .tab-text h3 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .tab-text ul {
+      list-style: none;
+      margin: 24px 0;
+    }
+    .tab-text li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: #d1d1dc;
+      font-size: 0.95rem;
+    }
+    .tab-text li i { color: var(--gold-primary); font-size: 0.85rem; }
+    .tab-img-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 380px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+    .tab-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+    .tab-img-wrap:hover img {
+      transform: scale(1.04);
+    }
+
+    /* Interactive Quote Simulator */
+    .simulator-box {
+      background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.15), transparent 70%), var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 24px;
+      padding: 50px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .sim-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 32px 0;
+    }
+    .sim-field label {
+      display: block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .sim-select, .sim-input {
+      width: 100%;
+      background: var(--bg-elevated);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .sim-select:focus, .sim-input:focus {
+      border-color: var(--gold-primary);
+    }
+
+    /* Testimonials */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 18px;
+      padding: 32px;
+      position: relative;
+    }
+    .stars {
+      color: #f7b731;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+    .review-text {
+      color: #cfcfe0;
+      font-style: italic;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .reviewer-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gold-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #121008;
+      font-weight: 700;
+    }
+    .reviewer-info h5 { color: #fff; font-size: 0.95rem; margin: 0; }
+    .reviewer-info span { color: var(--text-muted); font-size: 0.78rem; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: #060608;
+      padding: 60px 24px 30px;
+    }
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .footer-col h5 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      max-width: 1240px;
+      margin: 24px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #6d6d78;
+    }
+
+    /* Floating WhatsApp */
+    .floating-wa {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #25d366;
+      color: #fff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.9rem;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .floating-wa:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    @media (max-width: 992px) {
+      .highlights-grid { grid-template-columns: 1fr; }
+      .highlight-card.col-7, .highlight-card.col-5, .highlight-card.col-4, .highlight-card.col-8 {
+        grid-column: span 1;
+      }
+      .tab-content { grid-template-columns: 1fr; }
+      .sim-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement -->
+  <div class="top-announcement">
+    ✨ <strong>Agenda 2026/2027 Aberta:</strong> Garanta sua data com condições exclusivas de buffet e decoração inclusa no Vieiralves.
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#hero" class="brand">
+        <div class="brand-logo-badge">
+          <i class="fa-solid fa-crown"></i>
+        </div>
+        <div class="brand-text">
+          <h1>Imperial</h1>
+          <span>Eventos & Buffet • Manaus</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#espaco">O Salão</a></li>
+        <li><a href="#eventos">Celebrações</a></li>
+        <li><a href="#diferenciais">Buffet & Decoração</a></li>
+        <li><a href="#orcamento">Simular Orçamento</a></li>
+        <li><a href="#depoimentos">Avaliações</a></li>
+      </ul>
+      <div class="header-cta">
+        <a href="https://wa.me/message/T6OX7PBBCT7HJ1" target="_blank" class="btn-gold">
+          <i class="fa-brands fa-whatsapp"></i> Falar com Consultor
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-gem"></i> Requinte & Exclusividade no Vieiralves
+      </div>
+      <h2>Um cenário inesquecível para o <em>seu grande dia</em>.</h2>
+      <p>Salão climatizado com lustres de cristal e gastronomia refinada em Manaus. Espaço sofisticado e preparado para receber de 80 a 250 convidados.</p>
+      
+      <div class="hero-actions">
+        <a href="#orcamento" class="btn-gold">
+          <i class="fa-solid fa-calendar-check"></i> Agendar Visita & Orçamento
+        </a>
+        <a href="https://wa.me/message/T6OX7PBBCT7HJ1" target="_blank" class="btn-outline">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Direto
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <h3>80 a 250</h3>
+          <p>Capacidade de Pessoas</p>
+        </div>
+        <div class="stat-item">
+          <h3>+15 Anos</h3>
+          <p>Realizando Sonhos</p>
+        </div>
+        <div class="stat-item">
+          <h3>100%</h3>
+          <p>Climatizado & Equipado</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights / O Espaço -->
+  <section id="espaco">
+    <div class="section-header">
+      <span class="section-eyebrow">Estrutura Completa</span>
+      <h2 class="section-title">O Cenário dos Seus Sonhos com Tudo Incluso</h2>
+      <p class="section-desc">Localizado em área nobre de Manaus, o Imperial Eventos reúne infraestrutura de ponta e requinte para sua comemoração não se preocupar com nada.</p>
+    </div>
+
+    <div class="highlights-grid">
+      <div class="highlight-card col-7">
+        <div class="card-icon"><i class="fa-solid fa-snowflake"></i></div>
+        <h4>Salão 100% Climatizado & Lustres de Cristal</h4>
+        <p>Ambiente moderno, amplo e totalmente climatizado com sistema central de alto rendimento. Nossos lustres clássicos de cristal criam a atmosfera cinematográfica perfeita para fotos e vídeos da sua festa.</p>
+        <img src="https://imperialeventos.com.br/wp-content/uploads/2020/08/01.jpg" alt="Salão Climatizado Imperial" class="card-bg-img">
+      </div>
+
+      <div class="highlight-card col-5">
+        <div class="card-icon"><i class="fa-solid fa-utensils"></i></div>
+        <h4>Gastronomia & Buffet Próprio</h4>
+        <p>Menu refinado elaborado por profissionais experientes. Opções de entradas nobres, pratos principais contemporâneos e mesa de sobremesas impecáveis.</p>
+      </div>
+
+      <div class="highlight-card col-4">
+        <div class="card-icon"><i class="fa-solid fa-couch"></i></div>
+        <h4>Mobiliário Completo</h4>
+        <p>Mesas, cadeiras de alto padrão, toalhas finas, louças completas, taças e talheres já à disposição do seu evento.</p>
+      </div>
+
+      <div class="highlight-card col-8">
+        <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h4>Decoração e Iluminação Cênica Personalizada</h4>
+        <p>Nossa equipe de ambientação desenvolve projetos exclusivos para cada casal e debutante. Jogos de luzes cênicas computadorizadas que transformam a pista e a mesa principal em um espetáculo.</p>
+        <img src="https://imperialeventos.com.br/wp-content/uploads/2020/08/luana-festa-26.jpg" alt="Decoração personalizada" class="card-bg-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Showcase Tabs -->
+  <section id="eventos">
+    <div class="section-header">
+      <span class="section-eyebrow">Momentos Inesquecíveis</span>
+      <h2 class="section-title">Qual é a Sua Próxima Celebração?</h2>
+      <p class="section-desc">Formatos sob medida para cada estilo de evento social ou corporativo.</p>
+    </div>
+
+    <div class="events-showcase">
+      <div class="events-tabs">
+        <button class="tab-btn active" onclick="switchTab(0)">Casamentos & Bodas</button>
+        <button class="tab-btn" onclick="switchTab(1)">15 Anos & Debutantes</button>
+        <button class="tab-btn" onclick="switchTab(2)">Aniversários & Infantis Premium</button>
+        <button class="tab-btn" onclick="switchTab(3)">Formaturas & Corporativo</button>
+      </div>
+
+      <div id="tabContentArea">
+        <div class="tab-content">
+          <div class="tab-text">
+            <h3>Casamentos Inesquecíveis</h3>
+            <p>Seu grande dia merece toda a elegância e tranquilidade. Do altar decorado à recepção com pista de dança vibrante, cuidamos de cada detalhe com maestria.</p>
+            <ul>
+              <li><i class="fa-solid fa-circle-check"></i> Espaço para cerimônia e recepção no mesmo local</li>
+              <li><i class="fa-solid fa-circle-check"></i> Mesa de doces suntuosa com acabamento nobre</li>
+              <li><i class="fa-solid fa-circle-check"></i> Suporte de equipe e coordenação dedicada</li>
+              <li><i class="fa-solid fa-circle-check"></i> Cardápios especiais para os noivos e convidados</li>
+            </ul>
+            <a href="https://wa.me/message/T6OX7PBBCT7HJ1?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20Casamento" class="btn-gold" target="_blank">
+              Consultar Disponibilidade de Casamento
+            </a>
+          </div>
+          <div class="tab-img-wrap">
+            <img id="tabImage" src="https://imperialeventos.com.br/wp-content/uploads/2020/08/luana-festa-26.jpg" alt="Casamento Imperial Eventos">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Budget Simulator -->
+  <section id="orcamento">
+    <div class="simulator-box">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <span class="section-eyebrow">Planejamento Rápido</span>
+        <h2 class="section-title">Monte sua Estimativa de Festa</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Preencha os dados e receba a proposta detalhada diretamente no WhatsApp dos nossos especialistas em minutos.</p>
+      </div>
+
+      <div class="sim-grid">
+        <div class="sim-field">
+          <label><i class="fa-solid fa-champagne-glasses"></i> Tipo de Evento</label>
+          <select id="simTipo" class="sim-select">
+            <option value="Casamento">Casamento</option>
+            <option value="15 Anos">Festa de 15 Anos (Debutante)</option>
+            <option value="Aniversário Adulto">Aniversário Adulto</option>
+            <option value="Formatura">Formatura / Colação</option>
+            <option value="Corporativo">Evento Corporativo</option>
+          </select>
+        </div>
+
+        <div class="sim-field">
+          <label><i class="fa-solid fa-users"></i> Número de Convidados</label>
+          <select id="simConvidados" class="sim-select">
+            <option value="80 a 100 pessoas">80 a 100 convidados</option>
+            <option value="100 a 150 pessoas">100 a 150 convidados</option>
+            <option value="150 a 200 pessoas">150 a 200 convidados</option>
+            <option value="200 a 250 pessoas">200 a 250 convidados</option>
+          </select>
+        </div>
+
+        <div class="sim-field">
+          <label><i class="fa-solid fa-calendar-days"></i> Mês Pretendido</label>
+          <input type="text" id="simData" class="sim-input" placeholder="Ex: Novembro / 2026">
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button onclick="enviarSimulador()" class="btn-gold" style="font-size: 1.05rem; padding: 16px 36px;">
+          <i class="fa-brands fa-whatsapp"></i> Receber Proposta Detalhada no WhatsApp
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="depoimentos">
+    <div class="section-header">
+      <span class="section-eyebrow">Credibilidade</span>
+      <h2 class="section-title">O que dizem quem já celebrou conosco</h2>
+      <p class="section-desc">Mais de uma década entregando momentos de pura alegria para famílias de Manaus.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="review-text">"Nosso casamento foi simplesmente maravilhoso! O salão climatizado com os lustres deixou todos os convidados maravilhados. Buffet super elogiado e pontual."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">FL</div>
+          <div class="reviewer-info">
+            <h5>Flávia & Josué</h5>
+            <span>Casamento Realizado em 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="review-text">"A festa de 15 anos da minha filha foi um conto de fadas. Toda a equipe é super atenciosa, a decoração ficou impecável e não precisamos nos preocupar com nada."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">MS</div>
+          <div class="reviewer-info">
+            <h5>Mariana Silva</h5>
+            <span>Debutante 15 Anos</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="review-text">"Localização fantástica no Vieiralves, fácil estacionamento e climatização de verdade. Com certeza faremos novas celebrações da nossa empresa aqui!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">RC</div>
+          <div class="reviewer-info">
+            <h5>Rodrigo Costa</h5>
+            <span>Confraternização Empresarial</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="brand" style="margin-bottom: 16px;">
+          <div class="brand-logo-badge"><i class="fa-solid fa-crown"></i></div>
+          <div class="brand-text">
+            <h1>Imperial</h1>
+            <span>Eventos & Buffet</span>
+          </div>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; max-width: 320px;">
+          Desde 2009 transformando comemorações em memórias eternas no coração de Manaus. Conforto, requinte e excelência em serviços.
+        </p>
+      </div>
+
+      <div>
+        <h5>Navegação</h5>
+        <ul class="footer-links">
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#espaco">O Espaço</a></li>
+          <li><a href="#eventos">Formatos</a></li>
+          <li><a href="#orcamento">Orçamento</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Celebrações</h5>
+        <ul class="footer-links">
+          <li><a href="#eventos">Casamentos</a></li>
+          <li><a href="#eventos">15 Anos</a></li>
+          <li><a href="#eventos">Formaturas</a></li>
+          <li><a href="#eventos">Corporativos</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Contato & Endereço</h5>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 8px;">
+          <i class="fa-solid fa-location-dot" style="color: var(--gold-primary);"></i> Vieiralves / Manaus - AM
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 8px;">
+          <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i> (92) 98126-1990
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.88rem;">
+          <i class="fa-brands fa-instagram" style="color: #e1306c;"></i> @imperialeventos.am
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Imperial Eventos (Lilian Manoela Fernandes de Melo - ME • CNPJ: 26.508.542/0001-63). Todos os direitos reservados.</p>
+      <p>Microsite de Alta Performance</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/message/T6OX7PBBCT7HJ1" class="floating-wa" target="_blank" title="Falar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const tabsData = [
+      {
+        title: "Casamentos Inesquecíveis",
+        desc: "Seu grande dia merece toda a elegância e tranquilidade. Do altar decorado à recepção com pista de dança vibrante, cuidamos de cada detalhe com maestria.",
+        items: [
+          "Espaço para cerimônia e recepção no mesmo local",
+          "Mesa de doces suntuosa com acabamento nobre",
+          "Suporte de equipe e coordenação dedicada",
+          "Cardápios especiais para os noivos e convidados"
+        ],
+        btn: "Consultar Disponibilidade de Casamento",
+        msg: "Casamento",
+        img: "https://imperialeventos.com.br/wp-content/uploads/2020/08/luana-festa-26.jpg"
+      },
+      {
+        title: "Festas de 15 Anos & Debutantes",
+        desc: "Uma noite inesquecível de brilho e comemoração. Produção audiovisual, telão, efeitos e ambientação de gala para receber a debutante e amigos.",
+        items: [
+          "Entrada triunfal com iluminação cênica programada",
+          "Espaço de pista de dança moderno e climatizado",
+          "Buffet jovem com entradas e finger foods especiais",
+          "Lustres de cristal criando o cenário fotográfico perfeito"
+        ],
+        btn: "Consultar Datas para 15 Anos",
+        msg: "Festa de 15 Anos",
+        img: "https://imperialeventos.com.br/wp-content/uploads/2021/05/IMG_20180625_164838_522.jpg"
+      },
+      {
+        title: "Aniversários Adultos & Infantis Nobres",
+        desc: "Celebrações familiares com todo o conforto de um buffet de alto nível. Segurança, climatização e gastronomia farta.",
+        items: [
+          "Ambiente seguro e aconchegante para todas as idades",
+          "Decorações temáticas personalizadas",
+          "Equipamentos completos de mesa e copa",
+          "Equipe de garçons e apoio dedicada"
+        ],
+        btn: "Consultar Orçamento de Aniversário",
+        msg: "Aniversário",
+        img: "https://imperialeventos.com.br/wp-content/uploads/2020/09/vemproimperial-1-15.jpeg"
+      },
+      {
+        title: "Formaturas & Eventos Corporativos",
+        desc: "Elegância e credibilidade para receber formandos, professores e parceiros empresariais com padrão cinco estrelas.",
+        items: [
+          "Capacidade ideal de 80 a 250 convidados confortáveis",
+          "Estrutura para sonorização e discursos",
+          "Jantares em estilo empratado ou buffet americano",
+          "Localização de fácil acesso no Vieiralves"
+        ],
+        btn: "Consultar Evento Corporativo/Formatura",
+        msg: "Corporativo ou Formatura",
+        img: "https://imperialeventos.com.br/wp-content/uploads/2020/08/01.jpg"
+      }
+    ];
+
+    function switchTab(idx) {
+      document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === idx);
+      });
+      const d = tabsData[idx];
+      const html = `
+        <div class="tab-content">
+          <div class="tab-text">
+            <h3>${d.title}</h3>
+            <p>${d.desc}</p>
+            <ul>
+              ${d.items.map(it => `<li><i class="fa-solid fa-circle-check"></i> ${it}</li>`).join('')}
+            </ul>
+            <a href="https://wa.me/message/T6OX7PBBCT7HJ1?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20${encodeURIComponent(d.msg)}" class="btn-gold" target="_blank">
+              ${d.btn}
+            </a>
+          </div>
+          <div class="tab-img-wrap">
+            <img src="${d.img}" alt="${d.title}">
+          </div>
+        </div>
+      `;
+      document.getElementById('tabContentArea').innerHTML = html;
+    }
+
+    function enviarSimulador() {
+      const tipo = document.getElementById('simTipo').value;
+      const conv = document.getElementById('simConvidados').value;
+      const data = document.getElementById('simData').value || 'A definir';
+      const msg = `Olá, gostaria de um orçamento para o Imperial Eventos!\n\n• Evento: ${tipo}\n• Convidados: ${conv}\n• Data/Mês desejado: ${data}\n\nPoderia me enviar a disponibilidade e proposta?`;
+      window.open(`https://wa.me/message/T6OX7PBBCT7HJ1?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+  </script>
+</body>
+</html>

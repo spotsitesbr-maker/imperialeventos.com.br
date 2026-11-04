@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMPERIAL — Pavilhão Contemporâneo de Eventos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg-editorial: #f7f6f2;
+      --bg-pure: #ffffff;
+      --dark-primary: #121316;
+      --dark-secondary: #26282e;
+      --muted-gray: #6e717c;
+      --terracotta: #a65b40;
+      --champagne-gold: #c29d5b;
+      --hairline: rgba(18, 19, 22, 0.1);
+      --font-display: 'Cinzel', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg-editorial);
+      color: var(--dark-primary);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Minimalist Editorial Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 246, 242, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--dark-primary);
+    }
+    .brand-title span {
+      font-size: 0.75rem;
+      font-family: var(--font-body);
+      color: var(--muted-gray);
+      letter-spacing: 0.05em;
+      font-weight: 400;
+      margin-left: 10px;
+    }
+    .nav-items {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-items a {
+      color: var(--muted-gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .nav-items a:hover { color: var(--dark-primary); }
+
+    .btn-contact-pill {
+      background: var(--dark-primary);
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: all 0.3s;
+    }
+    .btn-contact-pill:hover {
+      background: var(--champagne-gold);
+      color: #121316;
+    }
+
+    /* Hero Section — Editorial Magazine Spread */
+    .hero-spread {
+      padding: 80px 40px 100px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .spread-meta {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--hairline);
+      padding-bottom: 18px;
+      margin-bottom: 40px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted-gray);
+    }
+    .hero-spread h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5.8rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--dark-primary);
+      margin-bottom: 40px;
+    }
+    .spread-content {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 60px;
+      align-items: flex-end;
+    }
+    .spread-img-main {
+      width: 100%;
+      height: 600px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .spread-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+    }
+    .spread-img-main:hover img {
+      transform: scale(1.04);
+    }
+    .spread-side {
+      border-left: 1px solid var(--hairline);
+      padding-left: 40px;
+      padding-bottom: 20px;
+    }
+    .spread-side p {
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: var(--dark-secondary);
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+    .number-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      border-top: 1px solid var(--hairline);
+      padding-top: 30px;
+    }
+    .metric-num h3 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--dark-primary);
+      font-weight: 700;
+    }
+    .metric-num span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted-gray);
+    }
+
+    /* Section Architecture / Dual Canvas */
+    .dual-section {
+      border-top: 1px solid var(--hairline);
+      padding: 120px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .dual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .dual-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+      line-height: 1.15;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .dual-text p {
+      color: var(--muted-gray);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+    .dual-gallery-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .stack-photo {
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .stack-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Architectural Elements / Numbers */
+    .elements-section {
+      background: var(--dark-primary);
+      color: #fff;
+      padding: 120px 40px;
+    }
+    .elements-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .elements-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 30px;
+      margin-bottom: 60px;
+    }
+    .elements-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 500;
+      line-height: 1.1;
+    }
+    .elements-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    .elem-card {
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      padding-left: 24px;
+    }
+    .elem-num {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--champagne-gold);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .elem-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .elem-card p {
+      color: #9ea1ac;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* Minimalist Final Section */
+    .final-editorial {
+      padding: 140px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .final-editorial h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .final-editorial p {
+      color: var(--muted-gray);
+      font-size: 1.15rem;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+    .btn-editorial-cta {
+      background: var(--dark-primary);
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: 0.05em;
+      transition: all 0.3s;
+    }
+    .btn-editorial-cta:hover {
+      background: var(--champagne-gold);
+      color: var(--dark-primary);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--hairline);
+      padding: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--muted-gray);
+    }
+    footer a { color: var(--muted-gray); text-decoration: none; }
+    footer a:hover { color: var(--dark-primary); }
+
+    @media (max-width: 992px) {
+      .spread-content { grid-template-columns: 1fr; }
+      .dual-grid { grid-template-columns: 1fr; }
+      .elements-row { grid-template-columns: 1fr; }
+      .nav-items { display: none; }
+      .header-inner { padding: 16px 20px; }
+      .hero-spread { padding: 40px 20px; }
+      .dual-section { padding: 60px 20px; }
+      .elements-section { padding: 60px 20px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Minimalist Editorial Header -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="brand-title">
+        Imperial <span>Pavilhão de Eventos</span>
+      </a>
+
+      <ul class="nav-items">
+        <li><a href="#conceito">Conceito</a></li>
+        <li><a href="#arquitetura">Espaço</a></li>
+        <li><a href="#contato">Atendimento</a></li>
+      </ul>
+
+      <a href="https://wa.me/message/T6OX7PBBCT7HJ1" target="_blank" class="btn-contact-pill">
+        Consultar Datas <i class="fa-solid fa-arrow-right" style="font-size: 0.75rem; margin-left: 4px;"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Spread -->
+  <div class="hero-spread" id="conceito">
+    <div class="spread-meta">
+      <div>Manaus • Bairro Vieiralves</div>
+      <div>Salão Nobre & Gastronomia</div>
+      <div>Capacidade: 80 a 250 pessoas</div>
+    </div>
+
+    <h1>Onde a elegância clássica encontra o design contemporâneo.</h1>
+
+    <div class="spread-content">
+      <div class="spread-img-main">
+        <img src="https://imperialeventos.com.br/wp-content/uploads/2020/08/01.jpg" alt="Imperial Eventos Salão Central">
+      </div>
+
+      <div class="spread-side">
+        <p>
+          Projetado para celebrar os grandes momentos da vida com serenidade e distinção. Um espaço fluido, com pé-direito generoso, lustres de cristal e conforto térmico pleno no coração nobre de Manaus.
+        </p>
+
+        <div class="number-metrics">
+          <div class="metric-num">
+            <h3>250</h3>
+            <span>Capacidade Máxima</span>
+          </div>
+          <div class="metric-num">
+            <h3>100%</h3>
+            <span>Climatizado Central</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dual Canvas Section -->
+  <div class="dual-section" id="arquitetura">
+    <div class="dual-grid">
+      <div class="dual-text">
+        <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--terracotta); font-weight: 600; display: block; margin-bottom: 12px;">Arquitetura & Cenografia</span>
+        <h2>A atmosfera exata para o seu sonho.</h2>
+        <p>
+          Eliminamos o excesso para valorizar o essencial: a beleza dos encontros, a emoção da cerimônia e o espetáculo da pista de dança sob lustres majestosos.
+        </p>
+        <p>
+          Toda a logística de mobiliário, louçaria, buffet autoral e suporte técnico já está integrada ao espaço, proporcionando serenidade aos noivos e anfitriões.
+        </p>
+      </div>
+
+      <div class="dual-gallery-stack">
+        <div class="stack-photo">
+          <img src="https://imperialeventos.com.br/wp-content/uploads/2020/08/luana-festa-26.jpg" alt="Decoração e Flores">
+        </div>
+        <div class="stack-photo" style="margin-top: 30px;">
+          <img src="https://imperialeventos.com.br/wp-content/uploads/2020/09/vemproimperial-1-15.jpeg" alt="Gastronomia Fina">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Technical Elements In Black -->
+  <div class="elements-section">
+    <div class="elements-container">
+      <div class="elements-header">
+        <div>
+          <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--champagne-gold); font-weight: 600; display: block; margin-bottom: 10px;">Infraestrutura Integrada</span>
+          <h2>A Ficha Técnica</h2>
+        </div>
+        <div style="color: #9ea1ac; font-size: 0.95rem;">
+          Tudo o que seu evento necessita em um só endereço nobre.
+        </div>
+      </div>
+
+      <div class="elements-row">
+        <div class="elem-card">
+          <span class="elem-num">01 / CLIMATIZAÇÃO</span>
+          <h4>Conforto Térmico Contínuo</h4>
+          <p>Sistema central de climatização dimensionado para manter temperatura equilibrada durante toda a celebração.</p>
+        </div>
+
+        <div class="elem-card">
+          <span class="elem-num">02 / ACERVO</span>
+          <h4>Mobiliário & Louçaria Inclusos</h4>
+          <p>Mesas nobres, cadeiras confortáveis, toalhas especiais, porcelanas, copos e talheres à disposição.</p>
+        </div>
+
+        <div class="elem-card">
+          <span class="elem-num">03 / GASTRONOMIA</span>
+          <h4>Buffet Autoral com Tradição</h4>
+          <p>Mais de 15 anos de excelência com cardápios contemporâneos elaborados por equipe culinária própria.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final Editorial Call -->
+  <div class="final-editorial" id="contato">
+    <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--terracotta); font-weight: 600; display: block; margin-bottom: 12px;">Visita Presencial</span>
+    <h2>Descubra a energia do Imperial de perto.</h2>
+    <p>Agende uma conversa com nossa equipe e visite o pavilhão no Vieiralves.</p>
+    <a href="https://wa.me/message/T6OX7PBBCT7HJ1?text=Olá,%20gostaria%20de%20agendar%20uma%20visita%20ao%20Imperial%20Eventos" target="_blank" class="btn-editorial-cta">
+      Falar com a Equipe no WhatsApp <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div>
+      Imperial Eventos • Vieiralves / Manaus — CNPJ: 26.508.542/0001-63
+    </div>
+    <div>
+      <a href="https://instagram.com/imperialeventos.am" target="_blank">Instagram @imperialeventos.am</a>
+    </div>
+  </footer>
+
+</body>
+</html>

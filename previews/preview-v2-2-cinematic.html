@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imperial Eventos — Experiência Cinematográfica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #07070a;
+      --glass-surface: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --accent-gold: #e2ba6d;
+      --accent-glow: rgba(226, 186, 109, 0.3);
+      --text: #ffffff;
+      --text-dim: #9292a0;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Ambient Video Hero */
+    .video-hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .video-bg-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .video-bg-wrap video, .video-bg-wrap iframe {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      pointer-events: none;
+      filter: brightness(0.45) contrast(1.15);
+      transform: scale(1.1);
+    }
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(7,7,10,0.2) 0%, rgba(7,7,10,0.85) 85%);
+      z-index: 2;
+    }
+
+    /* Top Floating Island */
+    .top-island {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      background: rgba(18, 18, 24, 0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      padding: 8px 14px 8px 24px;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    }
+    .island-logo {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .island-logo i { color: var(--accent-gold); font-size: 0.95rem; }
+    .island-menu {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .island-menu a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .island-menu a:hover { color: #fff; }
+    .btn-island-cta {
+      background: linear-gradient(135deg, var(--accent-gold), #c49641);
+      color: #07070a;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 10px 22px;
+      border-radius: 40px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-island-cta:hover {
+      box-shadow: 0 0 20px var(--accent-glow);
+      transform: scale(1.03);
+    }
+
+    /* Hero Text Content */
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 960px;
+      padding: 0 24px;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--accent-gold);
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+    .hero-tag span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      box-shadow: 0 0 10px var(--accent-gold);
+    }
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 6.5vw, 6rem);
+      font-weight: 400;
+      line-height: 1.08;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent-gold);
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: #c0c0cf;
+      max-width: 640px;
+      margin: 0 auto 40px;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(12px);
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s;
+    }
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+    }
+    .btn-gold-fill {
+      background: linear-gradient(135deg, var(--accent-gold), #b88628);
+      color: #07070a;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s;
+      box-shadow: 0 10px 30px rgba(226, 186, 109, 0.3);
+    }
+    .btn-gold-fill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(226, 186, 109, 0.5);
+    }
+
+    /* Section Architecture */
+    section {
+      padding: 140px 32px;
+      max-width: 1360px;
+      margin: 0 auto;
+    }
+    .sec-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--accent-gold);
+      margin-bottom: 16px;
+      display: block;
+      font-weight: 600;
+    }
+    .sec-header-center {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 70px;
+    }
+    .sec-title-lg {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      line-height: 1.15;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    .sec-desc {
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+
+    /* Cinematic Horizontal Slider */
+    .slider-container {
+      position: relative;
+      margin-top: 30px;
+    }
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .cine-card {
+      background: var(--glass-surface);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cine-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(226, 186, 109, 0.4);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+    .cine-img-wrap {
+      height: 340px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cine-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .cine-card:hover .cine-img-wrap img {
+      transform: scale(1.08);
+    }
+    .cine-body {
+      padding: 32px;
+    }
+    .cine-badge {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-gold);
+      margin-bottom: 10px;
+      display: block;
+      font-weight: 600;
+    }
+    .cine-body h4 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+    .cine-body p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* Ambient Spotlight Detail */
+    .spotlight-box {
+      background: radial-gradient(circle at 80% 20%, rgba(226, 186, 109, 0.12) 0%, transparent 60%),
+                  rgba(18, 18, 24, 0.6);
+      border: 1px solid var(--glass-border);
+      border-radius: 36px;
+      padding: 70px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-top: 60px;
+    }
+    .spotlight-info h3 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .spotlight-info p {
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 30px;
+    }
+    .spotlight-stats {
+      display: flex;
+      gap: 40px;
+      border-top: 1px solid var(--glass-border);
+      padding-top: 28px;
+    }
+    .sp-stat strong {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--accent-gold);
+      display: block;
+      line-height: 1;
+    }
+    .sp-stat span {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      margin-top: 6px;
+      display: block;
+    }
+    .spotlight-visual {
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+    }
+    .spotlight-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* VIP Concierge Booking Formless */
+    .vip-reserve {
+      text-align: center;
+      padding: 100px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .vip-reserve h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .vip-reserve p {
+      color: var(--text-dim);
+      font-size: 1.15rem;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    /* Footer Cinematic */
+    footer {
+      border-top: 1px solid var(--glass-border);
+      padding: 50px 32px;
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--text-dim); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 992px) {
+      .top-island { width: calc(100% - 32px); justify-content: space-between; }
+      .island-menu { display: none; }
+      .cards-row { grid-template-columns: 1fr; }
+      .spotlight-box { grid-template-columns: 1fr; padding: 40px 24px; }
+      section { padding: 80px 24px; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Dynamic Island -->
+  <header class="top-island">
+    <a href="#" class="island-logo">
+      <i class="fa-solid fa-crown"></i> Imperial
+    </a>
+    <ul class="island-menu">
+      <li><a href="#galeria">Ambientes</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#concierge">Visita VIP</a></li>
+    </ul>
+    <a href="https://wa.me/message/T6OX7PBBCT7HJ1" target="_blank" class="btn-island-cta">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp Concierge
+    </a>
+  </header>
+
+  <!-- Ambient Video Hero -->
+  <div class="video-hero">
+    <div class="video-bg-wrap">
+      <!-- High-resolution ambient video background -->
+      <video autoplay muted loop playsinline poster="https://imperialeventos.com.br/wp-content/uploads/2020/08/01.jpg">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-champagne-glasses-in-a-party-setting-42774-large.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span></span> Experiência Noturna & Gala • Manaus
+      </div>
+      <h1 class="hero-headline">
+        Onde noites memoráveis <em>se tornam lendas.</em>
+      </h1>
+      <p class="hero-sub">
+        Pavilhão climatizado nobre no Vieiralves. Lustres de cristal deslumbrantes, cenografia imersiva e gastronomia contemporânea para 80 a 250 convidados.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://wa.me/message/T6OX7PBBCT7HJ1?text=Olá,%20gostaria%20de%20consultar%20uma%20data%20VIP" target="_blank" class="btn-gold-fill">
+          Reservar Data Exclusiva
+        </a>
+        <a href="#galeria" class="btn-glass">
+          Explorar o Espaço <i class="fa-solid fa-arrow-down" style="font-size: 0.8rem;"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Galeria de Ambientes -->
+  <section id="galeria">
+    <div class="sec-header-center">
+      <span class="sec-eyebrow">Três Dimensões de Requinte</span>
+      <h2 class="sec-title-lg">Cada detalhe iluminado para transcender.</h2>
+      <p class="sec-desc">A estética contemporânea encontra o clássico imponente dos cristais.</p>
+    </div>
+
+    <div class="cards-row">
+      <!-- Card 1 -->
+      <div class="cine-card">
+        <div class="cine-img-wrap">
+          <img src="https://imperialeventos.com.br/wp-content/uploads/2020/08/01.jpg" alt="Lustres de Cristal">
+        </div>
+        <div class="cine-body">
+          <span class="cine-badge">Salão Nobre Central</span>
+          <h4>Lustres de Cristal & Pé-Direito</h4>
+          <p>O ponto alto da cenografia. Uma chuva de reflexos que emoldura a pista, os brindes e cada fotografia do seu grande dia.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="cine-card">
+        <div class="cine-img-wrap">
+          <img src="https://imperialeventos.com.br/wp-content/uploads/2020/08/luana-festa-26.jpg" alt="Recepção e Pista">
+        </div>
+        <div class="cine-body">
+          <span class="cine-badge">Cenografia Sob Medida</span>
+          <h4>Decoração & Iluminação Cênica</h4>
+          <p>Projetos luminotécnicos que mudam de intensidade do jantar ao auge da pista de dança, criando transições perfeitas.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="cine-card">
+        <div class="cine-img-wrap">
+          <img src="https://imperialeventos.com.br/wp-content/uploads/2020/09/vemproimperial-1-15.jpeg" alt="Gastronomia">
+        </div>
+        <div class="cine-body">
+          <span class="cine-badge">Alta Gastronomia</span>
+          <h4>Buffet Exclusivo & Louçaria</h4>
+          <p>Serviço farto e sofisticado com mesa posta completa, louçaria fina, taças de cristal e equipe de garçons sincronizada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiência & Spotlight -->
+  <section id="experiencia" style="padding-top: 0;">
+    <div class="spotlight-box">
+      <div class="spotlight-info">
+        <span class="sec-eyebrow">O Padrão Vieiralves</span>
+        <h3>Conforto térmico absoluto no coração de Manaus.</h3>
+        <p>
+          Sabemos que climatização impecável não é luxo, é compromisso fundamental. Nosso pavilhão conta com sistema central dimensionado para manter o ambiente fresco e agradável do início ao fim da sua comemoração.
+        </p>
+
+        <div class="spotlight-stats">
+          <div class="sp-stat">
+            <strong>100%</strong>
+            <span>Climatizado Central</span>
+          </div>
+          <div class="sp-stat">
+            <strong>250</strong>
+            <span>Capacidade Máxima</span>
+          </div>
+          <div class="sp-stat">
+            <strong>+15</strong>
+            <span>Anos de Excelência</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spotlight-visual">
+        <img src="https://imperialeventos.com.br/wp-content/uploads/2021/05/IMG_20180625_164838_522.jpg" alt="Evento no Imperial">
+      </div>
+    </div>
+  </section>
+
+  <!-- VIP Concierge Booking Formless -->
+  <div class="vip-reserve" id="concierge">
+    <span class="sec-eyebrow">Acesso Reservado</span>
+    <h2>Agende sua Visita Privada.</h2>
+    <p>Experimente o salão com a iluminação acesa e converse diretamente com quem vai realizar o seu evento.</p>
+    <a href="https://wa.me/message/T6OX7PBBCT7HJ1?text=Olá,%20gostaria%20de%20agendar%20uma%20visita%20privada%20ao%20Imperial%20Eventos" target="_blank" class="btn-gold-fill" style="font-size: 1.05rem; padding: 20px 48px;">
+      <i class="fa-brands fa-whatsapp"></i> Chamar no WhatsApp VIP
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div>
+      © 2026 Imperial Eventos • Vieiralves, Manaus — CNPJ: 26.508.542/0001-63
+    </div>
+    <div>
+      <a href="https://instagram.com/imperialeventos.am" target="_blank">@imperialeventos.am</a>
+    </div>
+  </footer>
+
+</body>
+</html>
