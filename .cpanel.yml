@@ -1,7 +1,21 @@
 ---
 deployment:
   tasks:
-    - /bin/bash -c "if [ -f $HOME/public_html/index.php ]; then cp -f $HOME/public_html/index.php $HOME/public_html/index.php.bak && mv -f $HOME/public_html/index.php $HOME/public_html/index.php.disabled; fi"
-    - /bin/cp -rf index.html googled75059461cbe7b3f.html robots.txt sitemap.xml .htaccess orcamento galeria imperial-kids politica-de-privacidade $HOME/public_html/
-    - /bin/chmod 644 $HOME/public_html/index.html $HOME/public_html/googled75059461cbe7b3f.html $HOME/public_html/robots.txt $HOME/public_html/sitemap.xml $HOME/public_html/.htaccess 2>/dev/null || true
-    - /bin/chmod -R 755 $HOME/public_html/orcamento $HOME/public_html/galeria $HOME/public_html/imperial-kids $HOME/public_html/politica-de-privacidade 2>/dev/null || true
+    - /bin/bash -c "mv -f $HOME/public_html/index.php.disabled $HOME/public_html/index.php 2>/dev/null || mv -f $HOME/public_html/index.php.bak $HOME/public_html/index.php 2>/dev/null || true"
+    - /bin/bash -c "rm -f $HOME/public_html/index.html 2>/dev/null || true"
+    - /bin/bash -c "rm -rf $HOME/public_html/orcamento $HOME/public_html/galeria $HOME/public_html/imperial-kids $HOME/public_html/politica-de-privacidade 2>/dev/null || true"
+    - /bin/bash -c "chmod 644 $HOME/public_html/index.php 2>/dev/null || true"
+    - /bin/bash -c 'cat << "EOF" > $HOME/public_html/.htaccess
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+EOF'
+    - /bin/bash -c "chmod 644 $HOME/public_html/.htaccess 2>/dev/null || true"
