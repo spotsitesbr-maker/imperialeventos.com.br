@@ -13,23 +13,25 @@ jobs:
     steps:
       - name: 1. Atualizar e Executar Deploy no cPanel
         run: |
-          echo "=== 1. Buscando raiz do repositorio ==="
+          echo "=== 1. Buscando raiz do repositorio no cPanel ==="
           REPOS_JSON=$(curl -k -s -S \
             -H "Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_TOKEN }}" \
             "https://${{ secrets.CPANEL_HOST }}:2083/execute/VersionControl/retrieve")
-          REPO_ROOT=$(echo "$REPOS_JSON" | jq -r '.data[0].repository_root' 2>/dev/null)
+          
+          REPO_ROOT=$(echo "$REPOS_JSON" | jq -r '(.data[] | select(.repository_root | test("imperial"; "i")) | .repository_root) // .data[0].repository_root' 2>/dev/null)
+          
           if [ -z "$REPO_ROOT" ] || [ "$REPO_ROOT" = "null" ]; then
             REPO_ROOT="/home/${{ secrets.CPANEL_USER }}/repositories/imperialeventos.com.br"
           fi
-          echo "Repository Root: $REPO_ROOT"
+          echo "Repository Root identificado: $REPO_ROOT"
 
-          echo "=== 2. Atualizando Repositorio Git ==="
+          echo "=== 2. Atualizando Repositorio Git (git pull) ==="
           UPDATE_RES=$(curl -k -s -S \
             -H "Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_TOKEN }}" \
             "https://${{ secrets.CPANEL_HOST }}:2083/execute/VersionControl/update?repository_root=$REPO_ROOT&branch=main")
           echo "Update: $UPDATE_RES"
 
-          echo "=== 3. Executando Deploy ==="
+          echo "=== 3. Executando Deploy (.cpanel.yml -> public_html) ==="
           DEPLOY_RES=$(curl -k -s -S \
             -H "Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_TOKEN }}" \
             "https://${{ secrets.CPANEL_HOST }}:2083/execute/VersionControlDeployment/create?repository_root=$REPO_ROOT")
@@ -47,7 +49,7 @@ jobs:
                 -H "Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_TOKEN }}" \
                 "https://${{ secrets.CPANEL_HOST }}:2083/execute/Fileman/get_file_content?dir=$(dirname "$LOG_PATH")&file=$(basename "$LOG_PATH")" | jq -r '.data.content' 2>/dev/null || true)
               if echo "$CONTENT" | grep -q "chmod 644"; then
-                echo "Deploy finalizado!"
+                echo "Deploy finalizado com sucesso!"
                 echo "$CONTENT"
                 break
               fi
