@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Imperial Kids — Buffet e Salão de Festa Infantil em Manaus</title>
-  <meta name="description" content="Salão de festa infantil completo em Manaus. Temas exclusivos, buffet infantil, brinquedos, climatização e segurança para momentos inesquecíveis. ☎ (92) 98126-1990">
-  <meta name="keywords" content="imperial kids manaus, festa infantil manaus, salao festa infantil manaus, buffet infantil manaus, decoracao infantil manaus">
+  <meta name="description" content="Salão de festa infantil completo em Manaus. Temas exclusivos, buffet infantil com salgadinhos artesanais, formaturas ABC e climatização total no Vieiralves. ☎ (92) 98126-1990">
+  <meta name="keywords" content="imperial kids manaus, festa infantil manaus, salao festa infantil manaus, buffet infantil manaus, formatura abc manaus">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://imperialeventos.com.br/imperial-kids/">
   <meta name="google-site-verification" content="d75059461cbe7b3f">
@@ -18,7 +18,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://imperialeventos.com.br/imperial-kids/">
   <meta property="og:title" content="Imperial Kids — Buffet e Salão de Festa Infantil em Manaus">
-  <meta property="og:description" content="Salão de festa infantil completo em Manaus. Temas exclusivos, buffet infantil, brinquedos, climatização e segurança para momentos inesquecíveis. ☎ (92) 98126-1990">
+  <meta property="og:description" content="Salão de festa infantil completo em Manaus. Temas exclusivos, buffet infantil com salgadinhos artesanais, formaturas ABC e climatização total no Vieiralves. ☎ (92) 98126-1990">
   <meta property="og:image" content="https://imperialeventos.com.br/wp-content/uploads/2020/08/01.jpg">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Imperial Eventos">
@@ -864,6 +864,160 @@
       .vip-reserve { padding: 80px 20px; }
     }
   
+    /* Pilares Oficiais do Briefing */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .pillar-card {
+      background: var(--surface);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 32px 28px;
+      transition: all 0.3s ease;
+    }
+    .pillar-card:hover {
+      border-color: rgba(226, 186, 109, 0.4);
+      transform: translateY(-4px);
+    }
+    .pillar-card .icon {
+      font-size: 1.8rem;
+      color: var(--accent-gold);
+      margin-bottom: 16px;
+    }
+    .pillar-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .pillar-card p {
+      color: var(--text-dim);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    /* Pacote Oficial Vem Pro Imperial */
+    .package-hero-card {
+      background: linear-gradient(135deg, rgba(226, 186, 109, 0.12) 0%, rgba(18, 18, 24, 0.95) 60%), #0e0e13;
+      border: 2px solid rgba(226, 186, 109, 0.4);
+      border-radius: 32px;
+      padding: 50px 44px;
+      margin: 50px 0 30px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+    }
+    .package-tag-gold {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-dark));
+      color: #07070a;
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 6px 18px;
+      border-radius: 50px;
+    }
+    .pkg-pricing-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin: 28px 0;
+      padding: 24px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 20px;
+      border: 1px solid var(--glass-border);
+    }
+    .pkg-price-item {
+      flex: 1;
+      min-width: 220px;
+    }
+    .pkg-price-item span {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+    .pkg-price-item strong {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--accent-gold);
+    }
+    .pkg-price-item small {
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    /* Menu Tabs & Cardapio Real */
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 30px 0 24px;
+    }
+    .m-tab {
+      background: var(--surface);
+      border: 1px solid var(--glass-border);
+      color: var(--text-dim);
+      padding: 10px 22px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.25s;
+    }
+    .m-tab.active, .m-tab:hover {
+      background: var(--accent-gold);
+      color: #07070a;
+      border-color: var(--accent-gold);
+      font-weight: 700;
+    }
+    .menu-panel {
+      display: none;
+      background: var(--surface);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 36px 32px;
+      margin-top: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+    .menu-panel.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .menu-items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .menu-item-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .menu-item-card i {
+      color: var(--accent-gold);
+      font-size: 1rem;
+    }
+    .menu-item-card span {
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+  
 
     .internal-hero {
       padding: 140px 24px 70px;
@@ -909,7 +1063,8 @@
       <li><a href="/">Início</a></li>
       <li><a href="/#sobre">Quem Somos</a></li>
       <li><a href="/#espaco">O Espaço</a></li>
-      <li><a href="/#buffet">Buffet</a></li>
+      <li><a href="/#buffet">Buffet Real</a></li>
+      <li><a href="/#pacotes">Pacotes & Valores</a></li>
       <li><a href="/galeria/">Galeria</a></li>
       <li><a href="/imperial-kids/">Imperial Kids</a></li>
       <li><a href="/orcamento/">Orçamento</a></li>
@@ -926,28 +1081,29 @@
       <span></span> Mundo Mágico • Linha Exclusiva
     </div>
     <h1>Imperial Kids: A Festa dos Sonhos</h1>
-    <p>Toda a magia e estrutura que seus filhos merecem em um ambiente 100% climatizado, seguro e com gastronomia deliciosa pensada para crianças e adultos.</p>
+    <p>Ambiente 100% climatizado, seguro, sem escadas perigosas e com gastronomia deliciosa para crianças e adultos.</p>
   </div>
 
   <main class="internal-content">
     
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 50px;">
       <div class="page-card">
-        <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--accent-gold); margin-bottom: 16px;">O Que Oferecemos</h3>
+        <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--accent-gold); margin-bottom: 16px;">Estrutura Imperial Kids</h3>
         <ul style="list-style: none; padding: 0; color: #c4c4d4; line-height: 2;">
           <li><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Salão 100% climatizado com conforto absoluto</li>
-          <li><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Decoração temática completa (Aviador, Carrossel, Circo, Safari, Princesas)</li>
-          <li><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Mesa cenográfica nobre para bolo e doces</li>
-          <li><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Mobiliário completo para convidados e crianças</li>
-          <li><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Buffet com salgadinhos, mini hambúrgueres, doces e pratos para adultos</li>
-          <li><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Segurança e espaço amplo sem escadas de risco</li>
+          <li><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Decorações temáticas completas (Aviador, Carrossel, Circo, Safari, Princesas)</li>
+          <li><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Mesa cenográfica nobre para bolo e doces com suporte</li>
+          <li><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Mobiliário completo: mesas, cadeiras e toalhas</li>
+          <li><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Buffet com 21 opções de salgadinhos, pratos quentes e sucos naturais</li>
+          <li><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Crianças de 0 a 4 anos não pagam (cortesia)</li>
+          <li><i class="fa-solid fa-check" style="color: var(--accent-gold); margin-right: 10px;"></i> Crianças de 5 a 10 anos: taxa reduzida de R$ 30,00</li>
         </ul>
       </div>
 
       <div class="page-card">
-        <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--accent-gold); margin-bottom: 16px;">Formatura ABC & Escolar</h3>
+        <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--accent-gold); margin-bottom: 16px;">Formatura ABC Infantil</h3>
         <p style="color: var(--text-dim); line-height: 1.8; margin-bottom: 16px;">
-          Celebre a formatura do ABC dos pequenos com toda a pompa e elegância. Oferecemos pacotes especiais para escolas e turmas infantis com passarela, becas, buffet e registro fotográfico de excelência.
+          Celebre a conquista da alfabetização dos pequenos com a grandeza que a data merece. Pacote exclusivo para escolas e turmas com passarela, becas, buffet completo e 20 lustres de cristal iluminando a cerimônia.
         </p>
         <a href="https://wa.me/message/T6OX7PBBCT7HJ1?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20festa%20infantil%20Imperial%20Kids" target="_blank" class="btn-gold-fill" style="display: inline-flex; width: 100%; justify-content: center; padding: 16px;">
           <i class="fa-brands fa-whatsapp"></i> Orçamento Imperial Kids
@@ -1020,6 +1176,7 @@
           <a href="https://wa.me/message/T6OX7PBBCT7HJ1" target="_blank" style="color: #fff; text-decoration: none;">(92) 98126-1990</a>
         </p>
         <div style="display: flex; gap: 14px; margin-top: 14px;">
+          <a href="https://instagram.com/imperialeventosvieiralves" title="@imperialeventosvieiralves" target="_blank" style="color: #e1306c; font-size: 1.3rem;"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://instagram.com/imperialeventos.am" target="_blank" style="color: #e1306c; font-size: 1.3rem;"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://facebook.com/imperialeventoscasadefesta" target="_blank" style="color: #1877f2; font-size: 1.3rem;"><i class="fa-brands fa-facebook"></i></a>
         </div>
