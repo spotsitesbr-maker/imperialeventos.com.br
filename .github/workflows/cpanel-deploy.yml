@@ -1,0 +1,58 @@
+name: Deploy Automático cPanel
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Atualizar e Implementar no cPanel
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Atualizar e Executar Deploy no cPanel
+        run: |
+          echo "=== 1. Buscando raiz do repositorio ==="
+          REPOS_JSON=$(curl -k -s -S \
+            -H "Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_TOKEN }}" \
+            "https://${{ secrets.CPANEL_HOST }}:2083/execute/VersionControl/retrieve")
+          REPO_ROOT=$(echo "$REPOS_JSON" | jq -r '.data[0].repository_root' 2>/dev/null)
+          if [ -z "$REPO_ROOT" ] || [ "$REPO_ROOT" = "null" ]; then
+            REPO_ROOT="/home/${{ secrets.CPANEL_USER }}/repositories/imperialeventos.com.br"
+          fi
+          echo "Repository Root: $REPO_ROOT"
+
+          echo "=== 2. Atualizando Repositorio Git ==="
+          UPDATE_RES=$(curl -k -s -S \
+            -H "Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_TOKEN }}" \
+            "https://${{ secrets.CPANEL_HOST }}:2083/execute/VersionControl/update?repository_root=$REPO_ROOT&branch=main")
+          echo "Update: $UPDATE_RES"
+
+          echo "=== 3. Executando Deploy ==="
+          DEPLOY_RES=$(curl -k -s -S \
+            -H "Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_TOKEN }}" \
+            "https://${{ secrets.CPANEL_HOST }}:2083/execute/VersionControlDeployment/create?repository_root=$REPO_ROOT")
+          echo "Deploy: $DEPLOY_RES"
+
+          LOG_PATH=$(echo "$DEPLOY_RES" | grep -o '"log_path":"[^"]*"' | cut -d'"' -f4)
+          echo "Log Path: $LOG_PATH"
+
+          # Aguardar deploy terminar e ler log
+          if [ -n "$LOG_PATH" ]; then
+            echo "=== 4. Log do Deploy ==="
+            for i in $(seq 1 30); do
+              sleep 3
+              CONTENT=$(curl -k -s -S \
+                -H "Authorization: cpanel ${{ secrets.CPANEL_USER }}:${{ secrets.CPANEL_TOKEN }}" \
+                "https://${{ secrets.CPANEL_HOST }}:2083/execute/Fileman/get_file_content?dir=$(dirname "$LOG_PATH")&file=$(basename "$LOG_PATH")" | jq -r '.data.content' 2>/dev/null || true)
+              if echo "$CONTENT" | grep -q "chmod 644"; then
+                echo "Deploy finalizado!"
+                echo "$CONTENT"
+                break
+              fi
+              echo "Aguardando termino do deploy (tentativa $i)..."
+            done
+            echo "=== Conteudo Final do Log ==="
+            echo "$CONTENT"
+          fi
