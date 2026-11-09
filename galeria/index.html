@@ -1085,37 +1085,119 @@
   </div>
 
   <main class="internal-content">
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
-      <div class="page-card" style="padding: 12px; overflow: hidden;">
-        <img src="https://imperialeventos.com.br/wp-content/uploads/2020/08/01.jpg" alt="Salão Climatizado com 20 Lustres de Cristal em Manaus" style="width: 100%; height: 260px; object-fit: cover; border-radius: 12px;">
-        <p style="color: #fff; font-weight: 600; margin-top: 10px; font-size: 0.95rem;">Salão Nobre & 20 Lustres de Cristal</p>
-        <span style="color: var(--text-dim); font-size: 0.8rem;">Climatização contínua para até 250 pessoas</span>
+    <div class="gallery-filter-bar" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;">
+      <button class="g-btn active" onclick="filtrarGaleria('todos', this)">Todas as Fotos (21)</button>
+      <button class="g-btn" onclick="filtrarGaleria('casamentos', this)">Casamentos (6)</button>
+      <button class="g-btn" onclick="filtrarGaleria('15anos', this)">15 Anos (6)</button>
+      <button class="g-btn" onclick="filtrarGaleria('formaturas', this)">Formaturas (5)</button>
+      <button class="g-btn" onclick="filtrarGaleria('confra', this)">Confraternizações (4)</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px;">
+      <!-- 1. Casamentos -->
+      <div class="g-item" data-cat="casamentos">
+        <img src="/assets/img/galeria/casamento-01.jpg" alt="Casamentos em Manaus - Fernanda e Ytalo (Cerimônia & Recepção) no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Casamentos: Fernanda e Ytalo</div>
       </div>
-      <div class="page-card" style="padding: 12px; overflow: hidden;">
-        <img src="https://imperialeventos.com.br/wp-content/uploads/2020/08/luana-festa-26.jpg" alt="Mesa de Bolo e Doces Casamento Manaus" style="width: 100%; height: 260px; object-fit: cover; border-radius: 12px;">
-        <p style="color: #fff; font-weight: 600; margin-top: 10px; font-size: 0.95rem;">Mesa Principal de Casamento</p>
-        <span style="color: var(--text-dim); font-size: 0.8rem;">Decoração clássica e floral com bolo cenográfico</span>
+      <!-- 2. Casamentos -->
+      <div class="g-item" data-cat="casamentos">
+        <img src="/assets/img/galeria/casamento-02.jpg" alt="Casamentos em Manaus - Fernanda e Ytalo (Cerimônia & Recepção) no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Casamentos: Fernanda e Ytalo</div>
       </div>
-      <div class="page-card" style="padding: 12px; overflow: hidden;">
-        <img src="https://imperialeventos.com.br/wp-content/uploads/2021/05/IMG_20180625_164838_522.jpg" alt="Festa de 15 Anos Debutante Manaus" style="width: 100%; height: 260px; object-fit: cover; border-radius: 12px;">
-        <p style="color: #fff; font-weight: 600; margin-top: 10px; font-size: 0.95rem;">Debutante 15 Anos</p>
-        <span style="color: var(--text-dim); font-size: 0.8rem;">Iluminação cênica e pista de dança</span>
+      <!-- 3. Casamentos -->
+      <div class="g-item" data-cat="casamentos">
+        <img src="/assets/img/galeria/casamento-03.jpg" alt="Casamentos em Manaus - Rayssa e Matheus Casamento no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Casamentos: Rayssa e Matheus Casamento</div>
       </div>
-      <div class="page-card" style="padding: 12px; overflow: hidden;">
-        <img src="https://imperialeventos.com.br/wp-content/uploads/2020/08/IMG-20190701-WA0092.jpg" alt="Recepção e Doces Finos Manaus" style="width: 100%; height: 260px; object-fit: cover; border-radius: 12px;">
-        <p style="color: #fff; font-weight: 600; margin-top: 10px; font-size: 0.95rem;">Arranjos e Mesa Nobre</p>
-        <span style="color: var(--text-dim); font-size: 0.8rem;">Louçaria fina, taças e prataria</span>
+      <!-- 4. Casamentos -->
+      <div class="g-item" data-cat="casamentos">
+        <img src="/assets/img/galeria/casamento-04.jpg" alt="Casamentos em Manaus - Rayssa e Matheus Casamento no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Casamentos: Rayssa e Matheus Casamento</div>
       </div>
-      <div class="page-card" style="padding: 12px; overflow: hidden;">
-        <img src="https://imperialeventos.com.br/wp-content/uploads/2020/09/vemproimperial-1-15.jpeg" alt="Gastronomia Buffet Salão de Festa Manaus" style="width: 100%; height: 260px; object-fit: cover; border-radius: 12px;">
-        <p style="color: #fff; font-weight: 600; margin-top: 10px; font-size: 0.95rem;">Gastronomia de Buffet</p>
-        <span style="color: var(--text-dim); font-size: 0.8rem;">Pratos quentes e pirarucu ao molho de camarão</span>
+      <!-- 5. Casamentos -->
+      <div class="g-item" data-cat="casamentos">
+        <img src="/assets/img/galeria/casamento-05.jpg" alt="Casamentos em Manaus - Gabriela e Natanael no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Casamentos: Gabriela e Natanael</div>
       </div>
-      <div class="page-card" style="padding: 12px; overflow: hidden;">
-        <img src="https://imperialeventos.com.br/wp-content/uploads/2020/02/WhatsAppImage2018-12-10at16.13.4313_optimized.jpeg" alt="Cerimônia e Recepção Coletiva Manaus" style="width: 100%; height: 260px; object-fit: cover; border-radius: 12px;">
-        <p style="color: #fff; font-weight: 600; margin-top: 10px; font-size: 0.95rem;">Cerimônia no Salão & Passarela</p>
-        <span style="color: var(--text-dim); font-size: 0.8rem;">Corredor da noiva e cadeiras Tiffany</span>
+      <!-- 6. Casamentos -->
+      <div class="g-item" data-cat="casamentos">
+        <img src="/assets/img/galeria/casamento-06.jpg" alt="Casamentos em Manaus - Gabriela e Natanael no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Casamentos: Gabriela e Natanael</div>
+      </div>
+      <!-- 7. 15 Anos -->
+      <div class="g-item" data-cat="15anos">
+        <img src="/assets/img/galeria/15anos-01.jpg" alt="15 Anos em Manaus - A Bela e a Fera - Juliana no Imperial Eventos" loading="lazy">
+        <div class="g-badge">15 Anos: A Bela e a Fera - Juliana</div>
+      </div>
+      <!-- 8. 15 Anos -->
+      <div class="g-item" data-cat="15anos">
+        <img src="/assets/img/galeria/15anos-02.jpg" alt="15 Anos em Manaus - A Bela e a Fera - Juliana no Imperial Eventos" loading="lazy">
+        <div class="g-badge">15 Anos: A Bela e a Fera - Juliana</div>
+      </div>
+      <!-- 9. 15 Anos -->
+      <div class="g-item" data-cat="15anos">
+        <img src="/assets/img/galeria/15anos-03.jpg" alt="15 Anos em Manaus - Alice no País das Maravilhas - Geovanna no Imperial Eventos" loading="lazy">
+        <div class="g-badge">15 Anos: Alice no País das Maravilhas - Geovanna</div>
+      </div>
+      <!-- 10. 15 Anos -->
+      <div class="g-item" data-cat="15anos">
+        <img src="/assets/img/galeria/15anos-04.jpg" alt="15 Anos em Manaus - Alice no País das Maravilhas - Geovanna no Imperial Eventos" loading="lazy">
+        <div class="g-badge">15 Anos: Alice no País das Maravilhas - Geovanna</div>
+      </div>
+      <!-- 11. 15 Anos -->
+      <div class="g-item" data-cat="15anos">
+        <img src="/assets/img/galeria/15anos-05.jpg" alt="15 Anos em Manaus - Enrolados - Gabriele no Imperial Eventos" loading="lazy">
+        <div class="g-badge">15 Anos: Enrolados - Gabriele</div>
+      </div>
+      <!-- 12. 15 Anos -->
+      <div class="g-item" data-cat="15anos">
+        <img src="/assets/img/galeria/15anos-06.jpg" alt="15 Anos em Manaus - Enrolados - Gabriele no Imperial Eventos" loading="lazy">
+        <div class="g-badge">15 Anos: Enrolados - Gabriele</div>
+      </div>
+      <!-- 13. Formaturas -->
+      <div class="g-item" data-cat="formaturas">
+        <img src="/assets/img/galeria/formatura-01.jpg" alt="Formaturas em Manaus - 3ºRÃO CMPM no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Formaturas: 3ºRÃO CMPM</div>
+      </div>
+      <!-- 14. Formaturas -->
+      <div class="g-item" data-cat="formaturas">
+        <img src="/assets/img/galeria/formatura-02.jpg" alt="Formaturas em Manaus - 3ºRÃO CMPM no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Formaturas: 3ºRÃO CMPM</div>
+      </div>
+      <!-- 15. Formaturas -->
+      <div class="g-item" data-cat="formaturas">
+        <img src="/assets/img/galeria/formatura-03.jpg" alt="Formaturas em Manaus - 3º ANO Palas Atenas no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Formaturas: 3º ANO Palas Atenas</div>
+      </div>
+      <!-- 16. Formaturas -->
+      <div class="g-item" data-cat="formaturas">
+        <img src="/assets/img/galeria/formatura-04.jpg" alt="Formaturas em Manaus - 3º ANO Palas Atenas no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Formaturas: 3º ANO Palas Atenas</div>
+      </div>
+      <!-- 17. Formaturas -->
+      <div class="g-item" data-cat="formaturas">
+        <img src="/assets/img/galeria/formatura-05.jpg" alt="Formaturas em Manaus - Medicina Veterinária no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Formaturas: Medicina Veterinária</div>
+      </div>
+      <!-- 18. Confraternizações -->
+      <div class="g-item" data-cat="confra">
+        <img src="/assets/img/galeria/confra-01.jpg" alt="Confraternizações em Manaus - UCB no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Confraternizações: UCB</div>
+      </div>
+      <!-- 19. Confraternizações -->
+      <div class="g-item" data-cat="confra">
+        <img src="/assets/img/galeria/confra-02.jpg" alt="Confraternizações em Manaus - UCB no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Confraternizações: UCB</div>
+      </div>
+      <!-- 20. Confraternizações -->
+      <div class="g-item" data-cat="confra">
+        <img src="/assets/img/galeria/confra-03.jpg" alt="Confraternizações em Manaus - FAMATEC no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Confraternizações: FAMATEC</div>
+      </div>
+      <!-- 21. Confraternizações -->
+      <div class="g-item" data-cat="confra">
+        <img src="/assets/img/galeria/confra-04.jpg" alt="Confraternizações em Manaus - Musashi no Imperial Eventos" loading="lazy">
+        <div class="g-badge">Confraternizações: Musashi</div>
       </div>
     </div>
 
@@ -1234,6 +1316,21 @@
     function fecharPrivacidade() {
       const modal = document.getElementById('modalPrivacidade');
       if (modal) modal.style.display = 'none';
+    }
+  </script>
+
+  <script>
+    function filtrarGaleria(cat, btn) {
+      document.querySelectorAll('.g-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const items = document.querySelectorAll('.g-item');
+      items.forEach(it => {
+        if (cat === 'todos' || it.getAttribute('data-cat') === cat) {
+          it.style.display = '';
+        } else {
+          it.style.display = 'none';
+        }
+      });
     }
   </script>
 </body>
